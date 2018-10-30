@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .logo{
+            width: 300px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+     .logo .p1{
+        font-size: 1.5rem;
+        color: orange;
+        padding:15px 0 5px 200px;
+    }
+     .logo .p2{
+        font-size: 1rem;
+        color: orange;
+        padding:0 0 3px 200px;
+    }
+    .pink{
+        width: 850px;
+        background: pink;
+        display: inline-block;
+        font-size: 0.8rem;
+        vertical-align: middle;
+        padding: 2px 20px;
+        margin-left: 50px;
+    }
+    .gaijin{
+        font-size: 0.8rem;
+        margin-left: 1000px;
+    }
+    section{
+        width: 100%;
+        height: 600px;
+        background: url("denglu/TB1JTLHd9zqK1RjSZPxSuw4tVXa.jpg");
+        background-size: 100% 600px;
+    }
+    .box{
+        width: 350px;
+        height: 350px;
+        background: rgb(216, 189, 189);
+        position: absolute;
+        top: 200px;
+        left: 1000px;
+    }
+    .title{
+        padding: 25px;
+        font-size: 1.2rem;
+    }
+    .text{
+        width: 300px;
+        height: 35px;
+        padding: 0 25px;
+        position: relative;
+    }
+    .text input{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .text img{
+        width: 30px;
+        height: 38px;
+        position: absolute;
+        top: 0;
+        left: 25px;
+    }
+    .password{
+        width: 300px;
+        height: 35px;
+        padding: 0 25px;
+        position: relative;
+        margin-top: 25px;
+    }
+    .password input{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    .password img{
+        width: 30px;
+        height: 38px;
+        position: absolute;
+        top: 0;
+        left: 25px;
+    }
+    .denglu{
+        width: 300px;
+        height: 35px;
+        padding: 0 25px;
+        position: relative;
+        margin-top: 25px;
+    }
+    .denglu input{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background: orangered;
+        color: white;
+    }
+    .span{
+        padding:25px;
+        font-size: 0.8rem;
+        }
+        .weibo:hover{
+            color: orange;
+        }
+        .zhifubao:hover{
+            color: orange;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:link{
+            color: black;
+        }
+        a:visited{
+            color: blue;
+        }
+        a:hover{
+            color: orangered;
+        }
+        .bottom{
+            font-size: 0.8rem;
+            margin-left: 160px;
+        }
+        .saoma{
+             position: absolute;
+             top: 0px;
+             left: 312px;
+             width: 38px;
+             height: 38px;
+        }
+        .saoma input{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left:0;
+            opacity: 0;
+        }
+        .mask{
+           /* padding: 105px; */
+           width: 350px;
+           height: 350px;
+           background: white;
+           position: absolute;
+           top: 0;
+           right: 0;
+           background: rgb(216, 189, 189);
+           display: none;
+        }
+        .mask1{
+            padding: 20px;
+        }
+        .mask2{
+            padding: 20px 10px 20px 150px;
+        }
+        .erweima{
+            padding: 45px 100px;
+        }
+        .check:checked~.mask{
+            display: block;
+        }
+        footer{
+            width: 80%;
+            margin: 10%;
+            font-size: 0.8rem;
+        }
+        .ali{
+               padding: 15px 0;
+               border-top: 1px solid grey;
+               border-bottom: 1px solid grey;
+        }
+        .guanyu{
+            padding: 15px 0;
+        }
+        #username,#password,#password2{
+            background: red;
+            color: white;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <p class="p1">淘宝网</p>
+            <p class="p2">taobao.com</p>
+        </div>
+        <div class="pink">为确保您账户的安全及正常使用，
+            依《网络安全法》相关要求，6月1日起会员账户需绑定手机。
+            如您还未绑定，请尽快完成，感谢您的理解及支持！</div>
+        <div class="gaijin">“登陆页面”改进建议</div>
+    </header>
+    <section>
+        <div class="box">
+            <div class="title">密码登录</div>
+
+
+
+
+
+
+            <form action="">
+                <div class="text">
+                    <input type="username" placeholder="会员名/邮箱/手机号" name="input1">
+                    <span id="username">账号不能为空</span>
+                    <!-- <img src="denglu/1.png" alt=""> -->
+                </div>
+                <div class="password">
+                    <input type="password" placeholder="请输入密码" name="input1">
+                    <span id="password">密码不能为空</span>
+                    <!-- <img src="denglu/2.png" alt=""> -->
+                </div>
+                <div class="password">
+                    <input type="password" placeholder="请再次输入密码" name="input1">
+                    <span id="password2">密码输入错误</span>
+                    <!-- <img src="denglu/2.png" alt=""> -->
+                </div>
+                <div class="denglu">
+                    <input type="button" value="登录" name="login">
+                </div>
+            </form>
+
+
+
+
+
+
+
+            <div class="span">
+                <span class="weibo">微博登录</span>
+                <span class="zhifubao">支付宝登录</span>
+            </div>
+            <div class="bottom">
+                <a href="#"><span>忘记密码</span></a>
+                <a href="#"><span>忘记会员名</span></a>
+                <a href="zhuce.html"><span>免费注册</span></a>
+            </div>
+            <div class="saoma">
+                <img src="denglu/ma.png" alt="">
+                <input type="checkbox" class="check">
+                <div class="mask">
+                    <div class="mask1">手机扫码，安全登录</div>
+                    <div class="erweima">
+                        <img src="denglu/TB18tRMfrvpK1RjSZFqwu3XUVXa.png" alt="">
+                    </div>
+                    <div class="mask2">密码登录&nbsp;&nbsp; &nbsp; &nbsp; 免费注册</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="ali">
+            阿里巴巴集团 | 阿里巴巴国际站 | 阿里巴巴中国站 | 全球速卖通 |
+            淘宝网 | 天猫 | 聚划算 | 一淘 | 阿里妈妈 | 飞猪 |
+            虾米 | 阿里云计算 | 云os | 万网 | 支付宝 | 来往 |
+        </div>
+        <div class="guanyu">
+            关于淘宝 合作伙伴 营销中心 廉正举报 联系客服
+            开放平台 诚征英 才联系我们 网站地图
+            法律声明及隐私权政策 © 2018 Taobao.com 版权所有
+        </div>
+        <div class="net">
+            网络文化经营许可证：浙网文[2016]0132-032号|增值电信业务经营许可证：浙B2-20080224-1|信息网络传播视听节目许可证：1109364号
+        </div>
+        <img src="denglu/wj.gif" alt="">
+    </footer>
+
+
+
+
+
+
+    <script>
+        var input1 = document.getElementsByName('input1')[0];
+        var input2 = document.getElementsByName('input1')[1];
+        var input3 = document.getElementsByName('input1')[2];
+        var username = document.getElementById('username');
+        var password1 = document.getElementById('password');
+        var password2 = document.getElementById('password2');
+        var login = document.getElementsByName('login')[0];
+
+
+        // input1.onblur = function(){
+        //     if(input1.value==''){
+        //         username.style.display = 'block';
+        //     }
+        // }
+        // input2.onblur = function(){
+        //     if(input2.value==''){
+        //         password1.style.display = 'block';
+        //     }
+        // }
+        // input3.onblur = function(){
+        //     if(input3.value != input2.value){
+        //         password2.style.display = 'block';
+        //     }
+        // }
+        login.onclick = function () {
+            if (input1.value == '') {
+                username.style.display = 'block';
+            }else{
+                username.style.display = 'none';
+            }
+
+            if (input2.value == '') {
+                password1.style.display = 'block';
+            }else{
+                password1.style.display = 'none';
+            }
+            if (input3.value != input2.value) {
+                password2.style.display = 'block';
+            }else{
+                password2.style.display = 'none';
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background: rgb(103,197,231);
+        }
+        .fbox {
+            width: 900px;
+            border: 1px solid wheat;
+            background: rgb(255,255,255);
+            padding: 20px 10px;
+            box-shadow: 1px 1px 1px 1px;
+            margin: 0 auto;
+        }
+        .centens{
+            background: rgb(251,238,223);
+            font-size: 1.5rem;
+            font-weight: bolder;  
+            padding: 10px; 
+        }
+        .text{
+            background: rgb(255,255,255);
+            width: 880px;
+            height: 45px;
+            border: 1px solid rgb(251,238,255);
+            font-size: 1.5rem;
+            outline: none;
+            border-radius: 5px;
+        }
+        .aside{
+            width: 200px;
+            position: absolute;
+            top: 140px;
+            left: 1314px;
+            background: white;
+            border: wheat 1px solid;
+            padding-top: 20px;
+        }
+        .aside ul{
+            padding: 0;
+        }
+        .aside li{
+            list-style: none;
+            /* line-height: 50px; */
+        }
+        .clock{
+            background: url('img/1.png') no-repeat 60px 0px;
+            height: 80px;
+            text-align: center;
+        }
+        .daojishi{
+            text-align: center;
+            font-size: 14px;
+        }
+        .time{
+            text-align: center;
+            color: orange;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .sheding{
+            text-align: center;
+            font-size:14px;
+        }
+        .speed{
+            background: url('img/1.png') no-repeat 0px -231px;
+            height: 40px;
+            padding-left: 50px;
+            margin-top: 10px;
+        }
+        .right{
+            background: url('img/1.png') no-repeat 0px -132px;
+            height: 40px;
+            padding-left: 50px;
+        }
+        .wrong{
+            background: url('img/1.png') no-repeat 0px -281px;
+            height: 40px;
+            padding-left: 50px;
+        }
+        .allword{
+            background: url('img/1.png') no-repeat 0px -183px;
+            height: 40px;
+            padding-left: 50px;
+        }
+        .back{
+            background: url('img/1.png') no-repeat 0px -83px;
+            height: 40px;
+            padding-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fbox">
+        <div class="centens">
+                I think I remember your eyes ,  I want to treat you alright ,  I'm feeling
+                 <!-- this sky in my heart -->
+            <div class="text" contenteditable="true"></div>
+        </div>
+    </div>
+    <div class="aside">
+        <ul>
+            <li class="clock"></li>
+            <li class="daojishi">倒计时</li>
+            <li class="time">01:00</li>
+            <li class="sheding">设定时间：1分钟</li>
+            <li class="speed">速&nbsp;&nbsp; 度：- WPM</li>
+            <li class="right">正确率：- %</li>
+            <li class="wrong">错&nbsp;&nbsp; 误：- 字</li>
+            <li class="allword">总字数：- 字</li>
+            <li class="back">退&nbsp;&nbsp; 格： - 次</li>
+        </ul>
+    </div>
+</body>
+
+</html>

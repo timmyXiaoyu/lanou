@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .fbox {
+            position: absolute;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border: 2px solid #f00;
+        }
+        
+        .fbox>div {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fbox">
+
+    </div>
+    <script>
+        var allBox = [];
+        var fbox = document.getElementsByClassName('fbox')[0];
+        // 获取父元素的盒子的宽高
+        var wid_ = fbox.offsetWidth,
+            hei_ = fbox.offsetHeight;
+        // 随机产生的盒子的数量
+        var boxNum = 3;
+        //生成盒子
+        function appendBox() {
+            for (var i = 0; i < boxNum; i++) {
+                var box = createBox();
+                fbox.appendChild(box);
+                allBox.push(box);
+            }
+        }
+        appendBox();
+
+        setInterval(move, 100);
+        // 盒子移动
+        function move() {
+            for (var i in allBox) {
+                // 碰壁检测
+                // impingementDetection(allBox[i]);
+                var result = impingementDetection(allBox[i]);
+                if (result.x) {
+                    allBox[i].speedx *= -1;
+                }
+                if (result.y) {
+                    allBox[i].speedy *= -1;
+                }
+
+
+                // 碰撞检测
+
+
+
+                allBox[i].style.left = allBox[i].offsetLeft + allBox[i].speedx + 'px';
+                allBox[i].style.top = allBox[i].offsetTop + allBox[i].speedy + 'px';
+            }
+
+        }
+        // 碰壁检测
+        function impingementDetection(boxEle) {
+            var result = {
+                x: false,
+                y: false
+            };
+            // 水平方向
+            if (boxEle.offsetLeft <= 0 || boxEle.offsetLeft >= wid_ - boxEle.offsetWidth) {
+                // true
+                // boxEle.speedx *= -1;
+                result['x'] = true;
+            }
+            // 垂直方向
+            if (boxEle.offsetTop <= 0 || boxEle.offsetTop >= hei_ - boxEle.offsetHeight) {
+                // boxEle.speedy *= -1;
+                result['y'] = true;
+
+            }
+            return result;
+        }
+
+        // var box1={
+        //     l:123,
+        //     r:234,
+        //     t:123,
+        //     b:13,
+        // }
+        //碰撞检测
+        function collisionDetection(obj1, obj2) {
+            if (obj1.r >= obj2.l && obj1.l <= obj2.r && obj1.b >= obj2.t && obj1.t <= obj2.b) {
+                return true;
+            }
+            return false;
+        }
+        // function collisionDetection(box1, box2) {
+        //     // A元素 的边界
+        //     // 左
+        //     var box1_l = box1.offsetLeft;
+        //     // 右
+        //     var box1_r = box1_l + box1.offsetWidth;
+        //     var box1_t = box1.offsetTop;
+        //     var box1_b = box1_t + box1.offsetHeight;
+        //     //B元素 的边界
+        //     var box2_l = box2.offsetLeft;
+        //     // 右
+        //     var box2_r = box2_l + box2.offsetWidth;
+        //     var box2_t = box2.offsetTop;
+        //     var box2_b = box2_t + box2.offsetHeight;
+        //     if (box1_r >= box2_l && box1_l <= box2_r && box1_b >= box2_t && box1_t <= box2_b) {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+
+        // 创建单个元素
+        function createBox() {
+            var box = document.createElement('div');
+            var wid_hei = getRandom(250, 250);
+            box.style.width = wid_hei + 'px';
+            box.style.height = wid_hei + 'px';
+            box.speedx = getRandom(1, 6);
+            box.speedy = getRandom(1, 6);
+            box.style.backgroundColor = getColor();
+            var left_ = getRandom(1, wid_ - wid_hei),
+                top_ = getRandom(1, hei_ - wid_hei);
+            box.style.left = left_ + 'px';
+            box.style.top = top_ + 'px';
+            // 判断当前元素是否 和其他元素重叠
+
+            var obj1 = {
+                l: left_,
+                r: left_ + wid_hei,
+                t: top_,
+                b: top_ + wid_hei,
+            }
+            var flag = false;
+            for (var i in allBox) {
+                var obj2 = {
+                        l: allBox[i].offsetLeft,
+                        r: allBox[i].offsetLeft + allBox[i].offsetWidth,
+                        t: allBox[i].offsetTop,
+                        b: allBox[i].offsetTop + allBox[i].offsetHeight
+                    }
+                    // 碰撞检测
+                var result = collisionDetection(obj1, obj2);
+                if (result) {
+                    flag = true;
+                }
+            }
+
+
+            if (flag) {
+                return createBox();
+            } else {
+                return box;
+
+            }
+            // return box;
+        }
+
+        // 获取随机颜色
+        function getColor() {
+            return 'rgb(' + getRandom(0, 255) + ',' + getRandom(0, 255) + ',' + getRandom(0, 255) + ')'
+        }
+        // 获取随机数
+        function getRandom(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+    </script>
+</body>
+
+</html>
